@@ -2,8 +2,8 @@
 //  main.m
 //  Singly API Example
 //
-//  Created by Justin Mecham on 5/7/12.
-//  Copyright (c) 2012 Core Intellect, LLC. All rights reserved.
+//  Written by Justin Mecham <justin@mecham.net>
+//  Copyright (c) 2012 Singly, Inc. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -13,6 +13,6 @@
 int main(int argc, char *argv[])
 {
   @autoreleasepool {
-      return UIApplicationMain(argc, argv, nil, NSStringFromClass([SYAppDelegate class]));
+    return UIApplicationMain(argc, argv, nil, NSStringFromClass([SYAppDelegate class]));
   }
 }
