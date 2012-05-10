@@ -28,6 +28,7 @@
 		D0A36F2D15589A4C0075AEF6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0A36F2C15589A4C0075AEF6 /* Icon.png */; };
 		D0A36F2F15589A510075AEF6 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0A36F2E15589A510075AEF6 /* Icon@2x.png */; };
 		D0C4D8781559DEAE003E1809 /* GTMHTTPFetcherLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C4D8771559DEA1003E1809 /* GTMHTTPFetcherLogging.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D0EE74B3155B5C800056C3AF /* SYWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EE74B2155B5C800056C3AF /* SYWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,8 @@
 		D0A36F2E15589A510075AEF6 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		D0C4D8761559DEA1003E1809 /* GTMHTTPFetcherLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMHTTPFetcherLogging.h; sourceTree = "<group>"; };
 		D0C4D8771559DEA1003E1809 /* GTMHTTPFetcherLogging.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMHTTPFetcherLogging.m; sourceTree = "<group>"; };
+		D0EE74B1155B5C800056C3AF /* SYWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYWebViewController.h; sourceTree = "<group>"; };
+		D0EE74B2155B5C800056C3AF /* SYWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,9 +128,11 @@
 			children = (
 				D0A36F14155899600075AEF6 /* SYAppDelegate.h */,
 				D0A36F15155899600075AEF6 /* SYAppDelegate.m */,
-				D0A36F19155899600075AEF6 /* MainStoryboard.storyboard */,
 				D0A36F1C155899600075AEF6 /* SYViewController.h */,
 				D0A36F1D155899600075AEF6 /* SYViewController.m */,
+				D0EE74B1155B5C800056C3AF /* SYWebViewController.h */,
+				D0EE74B2155B5C800056C3AF /* SYWebViewController.m */,
+				D0A36F19155899600075AEF6 /* MainStoryboard.storyboard */,
 				D0A36F0C155899600075AEF6 /* Supporting Files */,
 			);
 			path = "Singly API Example";
@@ -252,6 +257,7 @@
 				D0649B4A1558AFD100441108 /* GTMOAuth2ViewControllerTouch.m in Sources */,
 				D0649B4E1558B00700441108 /* GTMHTTPFetcher.m in Sources */,
 				D0C4D8781559DEAE003E1809 /* GTMHTTPFetcherLogging.m in Sources */,
+				D0EE74B3155B5C800056C3AF /* SYWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,8 @@
 
 @interface SYViewController : UITableViewController
 
+@property (nonatomic) NSString *token;
+
 - (void)authorizeWithFacebook;
 - (void)authorizeWithTwitter;
 - (void)authorize:(NSString *)service;

@@ -56,6 +56,31 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="API Endpoints" id="HNm-Ek-g9f">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="y6y-vS-2kv" style="IBUITableViewCellStyleDefault" id="rLj-XR-XIg">
+                                        <rect key="frame" x="0.0" y="182" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="View Profiles" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y6y-vS-2kv">
+                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="DRc-Q9-vEu" kind="push" id="ELe-7L-HYZ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="pjD-Az-Ki5" id="Gyi-NQ-eyS"/>
@@ -69,6 +94,32 @@
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="433" y="-602"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="nJ2-hp-xlN">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pN8-zV-qx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="DRc-Q9-vEu" customClass="SYWebViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tA0-sp-vpa">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="lPi-wr-1G7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ggk-LV-PzR"/>
+                    <connections>
+                        <outlet property="view" destination="tA0-sp-vpa" id="Wqt-A0-DpM"/>
+                        <outlet property="webView" destination="lPi-wr-1G7" id="39g-W8-JW6"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="945" y="-602"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9Dv-5r-3tb">
@@ -93,9 +144,13 @@
     <classes>
         <class className="SYViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SYViewController.h"/>
+        </class>
+        <class className="SYWebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYWebViewController.h"/>
             <relationships>
-                <relationship kind="action" name="authorizeWithFacebook:"/>
-                <relationship kind="action" name="authorizeWithTwitter:"/>
+                <relationship kind="outlet" name="endpoint" candidateClass="NSString"/>
+                <relationship kind="outlet" name="token" candidateClass="NSString"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
     </classes>

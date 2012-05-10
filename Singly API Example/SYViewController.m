@@ -6,9 +6,11 @@
 //  Copyright (c) 2012 Singly, Inc. All rights reserved.
 //
 
-#import "SYViewController.h"
-#import "GTMOAuth2ViewControllerTouch.h"
 #import "GTMHTTPFetcherLogging.h"
+#import "GTMOAuth2ViewControllerTouch.h"
+
+#import "SYViewController.h"
+#import "SYWebViewController.h"
 
 static NSString *const kKeychainItemName = nil;
 static NSString *const kMyClientID = @"XXXXXXXXXXXXXXXXXXXXXXXXXX";
@@ -22,7 +24,7 @@ static NSString *const kMyClientSecret = @"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 
 @implementation SYViewController
 
-@synthesize tableView;
+@synthesize token;
 
 #pragma mark - View Callbacks
 
@@ -51,10 +53,41 @@ static NSString *const kMyClientSecret = @"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
   [super viewDidUnload];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  NSIndexPath *selectedPath = [self.tableView indexPathForSelectedRow];
+
+  if (selectedPath.section == 1) // API Endpoints
+  {
+    SYWebViewController *webViewController = segue.destinationViewController;
+    NSString *endpoint;
+
+    // Determine the endpoint URL that we wish to send the user to.
+    switch (selectedPath.row)
+    {
+      case 0: // View Profiles
+        endpoint = @"https://carealot.singly.com/profiles";
+        break;
+      default:
+        break;
+    }
+
+    webViewController.endpoint = endpoint;
+    webViewController.token = self.token;
+  }
+}
+
 #pragma mark - Table View Delegates
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
+  // We only want to handle the Connected Services section with this delegate,
+  // as we will use segues for the other sections (see prepareForSegue:sender:
+  // above). Return unless the user has selected a row from the Connected
+  // Services section.
+  if (indexPath.section != 0) return;
+  
   switch (indexPath.row)
   {
     case 0: // Facebook
@@ -66,6 +99,7 @@ static NSString *const kMyClientSecret = @"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
     default:
       break;
   }
+  
 }
 
 #pragma mark - OAuth Support
@@ -134,7 +168,8 @@ static NSString *const kMyClientSecret = @"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
     NSLog(@"viewController:finishedWithAuth:error: FAILED");
     // Authentication failed
   } else {
-    NSLog(@"viewController:finishedWithAuth:error: SUCCEEDED");
+    NSLog(@"viewController:finishedWithAuth:error: SUCCEEDED, %@", auth);
+    self.token = auth.accessToken;
     // Authentication succeeded
   }
 }
