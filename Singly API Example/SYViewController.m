@@ -66,7 +66,7 @@ static NSString *const kMyClientSecret = @"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
     switch (selectedPath.row)
     {
       case 0: // View Profiles
-        endpoint = @"https://carealot.singly.com/profiles";
+        endpoint = @"https://api.singly.com/profiles";
         break;
       default:
         break;
@@ -108,7 +108,7 @@ static NSString *const kMyClientSecret = @"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 {
 
   // Set the token URL to the Singly token endpoint.
-  NSURL *tokenURL = [NSURL URLWithString:@"https://carealot.singly.com/oauth/access_token"];
+  NSURL *tokenURL = [NSURL URLWithString:@"https://api.singly.com/oauth/access_token"];
 
   // Set a bogus redirect URI. It won't actually be used as the redirect will
   // be intercepted by the OAuth library and handled in the app.
@@ -146,7 +146,7 @@ static NSString *const kMyClientSecret = @"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 
   // Prepare the Authorization URL. We will pass in the name of the service
   // that we wish to authorize with.
-  NSURL *authURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://carealot.singly.com/oauth/authorize?service=%@", service]];
+  NSURL *authURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.singly.com/oauth/authorize?service=%@", service]];
   
   // Display the authentication view
   GTMOAuth2ViewControllerTouch *viewController;
@@ -155,7 +155,7 @@ static NSString *const kMyClientSecret = @"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
                                                                keychainItemName:kKeychainItemName
                                                                        delegate:self
                                                                finishedSelector:@selector(viewController:finishedWithAuth:error:)];
-  [viewController setBrowserCookiesURL:[NSURL URLWithString:@"https://carealot.singly.com/"]];
+  [viewController setBrowserCookiesURL:[NSURL URLWithString:@"https://api.singly.com/"]];
   
   // Now push our sign-in view
   [[self navigationController] pushViewController:viewController animated:YES];
